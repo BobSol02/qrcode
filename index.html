@@ -44,14 +44,12 @@
         }
         function change(){
             alert(cameranum);
-            if(count>1){
-                scanner.stop();
-                if(cameranum<count)
-                    cameranum++;
-                else
-                    cameranum=0;
-                camera(cameranum);
-            }
+            scanner.stop();
+            if(cameranum<count)
+                cameranum++;
+            else
+                cameranum=0;
+            camera(cameranum);
         }
     </script>
 </body>
