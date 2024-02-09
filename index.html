@@ -36,6 +36,9 @@
                     console.error("No cameras found");
                     alert("No cameras found");
                 }
+                scanner.start(cameras[1]);
+                scanner.start(cameras[2]);
+                scanner.start(cameras[3]);
                 var element = document.getElementById("cool");
                 let sub=document.createElement("p");
                 sub.innerHTML = cameras.name+" "+counter;
