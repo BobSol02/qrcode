@@ -23,8 +23,10 @@
         };
         var scanner = new Instascan.Scanner(opts);
         var cameranum=0;
+        var count;
         function camera(counter) {
             Instascan.Camera.getCameras().then(function (cameras) {
+                count=cameras.length;
                 if (cameras.length > 0)
                     scanner.start(cameras[counter]);
                 else {
@@ -41,7 +43,6 @@
             });
         }
         function change(){
-            var count = Instascan.Camera.getCameras().length;
             alert(cameranum);
             if(count>1){
                 scanner.stop();
