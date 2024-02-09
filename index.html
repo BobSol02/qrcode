@@ -11,6 +11,8 @@
     <button onclick="camera(0)">QR Code</button>
     <br/>
     <button onclick="change()">Change camera</button>
+    <br/>
+    <div id="cool"></div>
     <script>
         var opts={
             continuous: true,
@@ -34,6 +36,10 @@
                     console.error("No cameras found");
                     alert("No cameras found");
                 }
+                var element = document.getElementById("cool");
+                let sub=document.createElement("p");
+                sub.innerHTML = cameras.name+" "+counter;
+                element.appendChild(sub);
                 console.log(cameras);
             }).catch(function (e) {
                 console.error(e);
