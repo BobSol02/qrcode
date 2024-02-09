@@ -8,7 +8,7 @@
 <body>
     <video id="preview"></video>
     <div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center;" id="content"></div>
-    <button onclick="camera()">QR Code</button>
+    <button onclick="camera(0)">QR Code</button>
     <br/>
     <button onclick="change()">Change camera</button>
     <script>
@@ -23,10 +23,10 @@
         };
         var scanner = new Instascan.Scanner(opts);
         var cameranum=0;
-        function camera() {
+        function camera(counter) {
             Instascan.Camera.getCameras().then(function (cameras) {
                 if (cameras.length > 0)
-                    scanner.start(cameras[0]);
+                    scanner.start(cameras[counter]);
                 else {
                     console.error("No cameras found");
                     alert("No cameras found");
@@ -41,8 +41,7 @@
             });
         }
         function change(){
-            var cameras = Instascan.Camera.getCameras();
-            var count = cameras.length;
+            var count = Instascan.Camera.getCameras().length;
             alert(cameranum);
             if(count>1){
                 scanner.stop();
@@ -50,7 +49,7 @@
                     cameranum++;
                 else
                     cameranum=0;
-                scanner.start(cameras[cameranum]);
+                camera(cameranum);
             }
         }
     </script>
