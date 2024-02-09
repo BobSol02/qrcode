@@ -43,6 +43,7 @@
         function change(){
             var cameras = Instascan.Camera.getCameras();
             var count = cameras.length;
+            alert(cameranum);
             if(count>1){
                 scanner.stop();
                 if(cameranum<count)
